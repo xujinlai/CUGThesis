@@ -107,3 +107,8 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
+
+/main.synctex.gz
+/main.out
+/main.loa
+/main.fdb_latexmk

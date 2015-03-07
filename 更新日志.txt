@@ -1,0 +1,17 @@
+%
+% China University of Geosciences Thesis Template
+% For Master Degree
+%
+%   Version
+%       Beta
+%   Created 
+%       2015.03.06 by seeksky@CUG
+%   Last Modified
+%       2015.03.06 by seeksky@CUG
+%
+%       $Id$
+%
+由于水平所限，更新后模板可能存在bug，恳请大家及时告知。
+
+更新日志[20150306] v0.1
+创建模版并修改适用于硕士毕业论文撰写
