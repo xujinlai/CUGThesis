@@ -16,3 +16,7 @@ Needed Files:\\
  * /chapter: with all the subsection files in it including the abstract and so on.
  * /bib: just \Bibtex files for references.
  * /figures: the directory for figures. Please use PDF, EPS ans so on.
+ 
+# Update Log
+[2016/03/06] v0.1
+Create the template 
