@@ -11,3 +11,5 @@ rm -f *.thm
 rm -f *.toc
 rm -f *.out
 rm -f *.loa
+rm -f *.fdb_latexmk
+rm -f *.fls
