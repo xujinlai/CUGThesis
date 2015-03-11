@@ -764,10 +764,10 @@
 	  {学\hspace{2\ccwd}号：} & \ustc@underline[6cm]{\ustc@studentid}\\
 	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@underline[6cm]{\ustc@author}\\
 	  {学科专业：} & \ustc@underline[6cm]{\ustc@major}\\
-	  {指导教师：} &　\ustc@underline[6cm]{\ustc@advisor}\\
+	  {指导教师：} & \ustc@underline[6cm]{\ustc@advisor}\\
 	  \ifx\ustc@coadvisor\@empty\else
 	                        & \ustc@underline[6cm]{\ustc@coadvisor}\\\fi
-	  {所在学院：} &　\ustc@underline[6cm]{\ustc@depart}
+	  {所在学院：} & \ustc@underline[6cm]{\ustc@depart}
 	\end{tabular}
   \fi
   \end{spacing}}
@@ -825,7 +825,7 @@
     \else	\begin{tabular}{lc}%
   	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@underline[6cm]{\ustc@author}\\
   	  {学科专业：} & \ustc@underline[6cm]{\ustc@major}\\
-  	  {指导教师：} &　\ustc@underline[6cm]{\ustc@advisor}\\
+  	  {指导教师：} & \ustc@underline[6cm]{\ustc@advisor}\\
   	  \ifx\ustc@coadvisor\@empty\else
   	                        & \ustc@underline[6cm]{\ustc@coadvisor}\fi
   	\end{tabular}
@@ -1195,13 +1195,15 @@
   %\fancyfoot[RO,LE]{\small \thepage}
   \fancypagestyle{plain}{%
   \fancyhf{}%
+  \pagestyle{fancy}
   \fancyhead[LO,RE]{\song\xiaowu \ustc@ensubmitdate}
   \fancyhead[CO]{\song\xiaowu {中国地质大学硕士学位论文}}
   \fancyhead[CE]{\song\xiaowu \ustc@author :~~ \ustc@spinetitle}
   \fancyhead[LE,RO]{\song\xiaowu ~\thepage~}
 }
-\pagestyle{fancy}
+\pagestyle{plain}
   \fancyhf{}
+  \pagestyle{fancy}
   \fancyhead[LO,RE]{\song\xiaowu \ustc@ensubmitdate}
   \fancyhead[CO]{\song\xiaowu {中国地质大学硕士学位论文}}
   \fancyhead[CE]{\song\xiaowu \ustc@author :~~ \ustc@spinetitle}
