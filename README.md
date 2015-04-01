@@ -5,7 +5,7 @@ This is a \Latex Template for Thesis Writing by Seeksky@CUG. Welcome to my homep
 The Template is modified from the universal thesis template in USTC. Thanks very much for their effort in the template.  
 
 # Intro
-Please use \Xelatex for compiling the files. Maybe TextLive is better for the template, because I didn't test the availability when using MikTex.
+Please use \Xelatex for compiling the files. Maybe TexLive is better for the template, because I didn't test the availability when using MikTex.
 
 Needed Files:
  * cugthesis.cls: all in one style class.
@@ -17,10 +17,14 @@ Needed Files:
  * /bib: just \Bibtex files for references.
  * /figures: the directory for figures. Please use PDF, EPS ans so on.
  
+#Recommendation
+I recommend **Sublime Text 3** + **LatexTool** + **TexLive** + **SumatraPDF** tool-chains.
+Because after the configuration, you can compile the whole files with only needing to click **"Ctrl+B"**.
+ 
 # Update Log
 [20150316] v0.1.1
 Change the sub-chapter files to UTF-8 without BOM.
-Add the top flag to support the LatexTool for the mutilfile compiling and searching.
+Add the top flag to support the LatexTool for the mutil-files compiling and searching in Sublime Text 3.
 
 [2016/03/06] v0.1
 Create the template 
