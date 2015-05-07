@@ -1177,6 +1177,10 @@
   \sihao{日\hspace{6\ccwd}期：\ustc@underline[6cm]{\hspace{4\ccwd}年\hspace{2\ccwd}月\hspace{2\ccwd}日}}
   \end{flushright}
    \clearpage
+     \if@twoside
+    \thispagestyle{empty}
+    \cleardoublepage
+  \fi
    \thispagestyle{empty}
   \begin{center}\xiaoer\bfseries{中国地质大学（武汉）学位论文使用授权书}\end{center}
   \vskip1.5cm
