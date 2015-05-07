@@ -58,7 +58,7 @@
 %不再鼓励使用$$...$$的方式输入公式，可能会引起奇怪的问题
 %如果一定要用$$...$$输入公式。请在更新到上述版本后加入PlainEquation选项。
 
-\LoadClass[cs4size,a4paper,fancyhdr,fntef]{ctexbook}
+\LoadClass[cs4size,executivepaper,fancyhdr,fntef]{ctexbook}
       
 %%%%%%%%%%%%%%%%%%%%%%% begin of extra component %%%%%%%%%%%%%%%%%%%%%%
 % extra pack is integreted with the main latex class.
@@ -102,8 +102,6 @@
 \fi
 \RequirePackage{url}	\def\UrlBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z\do\[\do\\\do\]\do\^\do\_\do\`\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]\do\)\do\,\do\?\do\'\do+\do\=\do\#}
 
-
-
 \ustc@define@term{ustcloaname}
 \ifustc@notchinese
 	\ustcloaname{List of Algorithm}
@@ -113,7 +111,10 @@
 	\renewcommand{\algorithmcfname}{算法}
 \fi
 \renewcommand{\listalgorithmcfname}{\ustc@ustcloaname}
-\newcommand\ustcloa{\cleardoublepage\addcontentsline{toc}{chapter}{\ustc@ustcloaname}\listofalgorithms}
+\newcommand\ustcloa{
+\cleardoublepage\listofalgorithms
+  \thispagestyle{empty}
+  \pagestyle{empty}}
 
 \ifustc@oldfontcfg
 	\ifustc@adobefont
@@ -164,11 +165,13 @@
 \newcommand{\scite}[1]{\textsuperscript{\cite{#1}}}
 
 \newenvironment{denotation}[1][2.5cm]{
+  \cleardoublepage
   \ifustc@notchinese
-  		\chapter{Nomenclature}
+  		\chapter*{Nomenclature}
   \else
-  		\chapter{主要符号对照表} % no tocline
+  		\chapter*{主要符号对照表} % no tocline
   \fi
+  \thispagestyle{empty}
   \noindent\begin{list}{}%
     {\vskip-30bp%\xiaosihao[1.6]
      \renewcommand\makelabel[1]{##1\hfil}
@@ -432,10 +435,12 @@
 \RequirePackage{titletoc}
 \RequirePackage{titlesec}
 \RequirePackage[
-	left=2.54cm,
-	right=2.54cm,
-	top=2.54cm,
-	bottom=2.54cm,
+  paperwidth=19.5cm,
+  paperheight=27cm,
+	left=2.5cm,
+	right=2.5cm,
+	top=2.5cm,
+	bottom=2.5cm,
 	headsep=0.25cm,
 	headheight=1.92cm,
 	footskip=1.75cm,
@@ -474,7 +479,7 @@
 \newcommand{\xiaochu}   {\fontsize{36pt}   {\baselineskip}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36pt}   {\baselineskip}\selectfont}
 \newcommand{\yihao}     {\fontsize{28pt}   {\baselineskip}\selectfont}
-\newcommand{\erhao}     {\fontsize{21pt}   {\baselineskip}\selectfont}
+\newcommand{\erhao}     {\fontsize{22pt}   {\baselineskip}\selectfont}
 \newcommand{\xiaoer}    {\fontsize{18pt}   {\baselineskip}\selectfont}
 \newcommand{\xiaoerhao} {\fontsize{18pt}   {\baselineskip}\selectfont}
 \newcommand{\sanhao}    {\fontsize{15.75pt}{\baselineskip}\selectfont}
@@ -483,7 +488,7 @@
 \newcommand{\sihao}     {\fontsize{14pt}   {\baselineskip}\selectfont}
 \newcommand{\xiaosi}    {\fontsize{12pt}   {\baselineskip}\selectfont}
 \newcommand{\xiaosihao} {\fontsize{12pt}   {\baselineskip}\selectfont}
-\newcommand{\wuhao}     {\fontsize{10.5pt} {\baselineskip}\selectfont}
+\newcommand{\wuhao}     {\fontsize{10pt} {\baselineskip}\selectfont}
 \newcommand{\xiaowu}    {\fontsize{9pt}    {\baselineskip}\selectfont}
 \newcommand{\xiaowuhao} {\fontsize{9pt}    {\baselineskip}\selectfont}
 \newcommand{\liuhao}    {\fontsize{7.875pt}{\baselineskip}\selectfont}
@@ -552,8 +557,14 @@
 \fi
 \CTEXoptions[listfigurename={\ustc@ustclofname}]
 \CTEXoptions[listtablename={\ustc@ustclotname}]
-\newcommand\ustclot{\cleardoublepage\addcontentsline{toc}{chapter}{\ustc@ustclotname}\listoftables}
-\newcommand\ustclof{\cleardoublepage\addcontentsline{toc}{chapter}{\ustc@ustclofname}\listoffigures}
+\newcommand\ustclot{\cleardoublepage
+\listoftables
+\thispagestyle{empty}
+\pagestyle{empty}}
+\newcommand\ustclof{\cleardoublepage
+\listoffigures
+  \thispagestyle{empty}
+  \pagestyle{empty}}
 
 %New mathematical environments
 \ifustc@notchinese
@@ -619,6 +630,22 @@
 	\def\assumptionautorefname{假设}
 	\def\propertyautorefname{性质}
 \fi
+
+%\usepackage{caption2,caption3}
+%\usepackage{subfigure}
+%\renewcommand{\captionfont}{\ftcaptionfont}
+%\renewcommand{\captionlabelfont}{\ftcaptionfont}
+%\renewcommand{\captionlabeldelim}{}
+%\renewcommand{\tablename}{表}
+
+% add in 2015/05/07 by xujinlai 
+% to satisfy the requirement of figure and table caption type "图 1-1" from original Latex "图 1.1"
+\renewcommand{\thetable}{~\arabic{chapter}-\arabic{table}~}
+%\renewcommand{\figurename}{图}
+\renewcommand{\thefigure}{~\arabic{chapter}-\arabic{figure}~}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}~}
+%\renewcommand{\subcaplabelfont}{\ftcaptionfont}
+%\renewcommand{\subcapsize}{\ftcaptionfont}
 
 %Line and par setup
 %It seems unnecessary since CTeX has already set the \baselinestretch etc.
@@ -716,10 +743,10 @@
 
 \newcommand\make@cntitle{%
   \newgeometry{%
-  top=2.54cm,
-  bottom=2.54cm,
-  left=2.54cm,
-  right=2.54cm
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
   }
   \pdfbookmark[-1]{\ustc@title}{title}
   \cleardoublepage
@@ -731,7 +758,7 @@
             \hfill
     \song\sanhao{密\hspace{1\ccwd}级:}~\CUGTunderline[70pt]{} \\
     \vspace{5em}
-    \begin{spacing}{1.2}
+    \begin{spacing}{1.3}
     \centering\erhao\hei{中国地质大学} \\
     \erhao\hei\ifustc@doctor
       {博士学位论文}
@@ -740,10 +767,10 @@
     \else
       {学士学位论文}
     \fi\fi \\
-    \vspace{3em}
+    \vspace{2em}
 	 	\hei\sanhao{\ustc@title} \\
     \end{spacing}
-	\vspace{3em}
+	\vspace{2em}
 	\song
   \end{center}
   %\vskip 1.0cm %0.6cm 0.7cm 2.3cm
@@ -792,7 +819,7 @@
               \hfill
       \song\sanhao{研究生学号:}~{\ustc@studentid} \\
       \vspace{5em}
-      \begin{spacing}{1.2}
+      \begin{spacing}{1.4}
       \centering\erhao\hei\bfseries{中国地质大学 \\
       \erhao\hei\ifustc@doctor
         {博士学位论文}
@@ -801,10 +828,10 @@
       \else
         {学士学位论文}
       \fi\fi }\\
-      \vspace{3em}
+      \vspace{2em}
   	 	\hei\sanhao\textmd{\ustc@title} \\
       \end{spacing}
-  	\vspace{3em}
+  	\vspace{2em}
   	\song
     \end{center}
     %\vskip 1.0cm %0.6cm 0.7cm 2.3cm
@@ -847,18 +874,19 @@
 %English title page
 \newcommand\make@entitle{%
   \newgeometry{%
-  top=2.54cm,
-  bottom=2.54cm,
-  left=2.54cm,
-  right=2.54cm
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
   }
   %\pdfbookmark{英文标题}{etitle}
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
     \vspace*{0cm}
-      \xiaosan{{A Dissertation Submitted to China University \\
-        of Geosciences for}}
+      \xiaosan{{A Dissertation Submitted to China University \\}
+      \vskip 0.5cm
+        \xiaosan{of Geosciences for}}
     %\vskip -0.2cm %-0.6cm
     {\ifustc@doctor
       {A dissertation for doctor's degree}
@@ -1141,25 +1169,27 @@
   \vskip1.5cm
   \begin{spacing}{1.5}
   \par\sihao\ustc@declaretext\par
+  \end{spacing}
   \vskip1.5cm
    \begin{flushright}
   \sihao{学位论文作者签名：\ustc@underline[6cm]{}}\\
+  \vskip1cm
   \sihao{日\hspace{6\ccwd}期：\ustc@underline[6cm]{\hspace{4\ccwd}年\hspace{2\ccwd}月\hspace{2\ccwd}日}}
   \end{flushright}
-  \end{spacing}
    \clearpage
    \thispagestyle{empty}
   \begin{center}\xiaoer\bfseries{中国地质大学（武汉）学位论文使用授权书}\end{center}
   \vskip1.5cm
   \begin{spacing}{1.5}
   \par\sihao\ustc@authorization\par
+  \end{spacing}
   %%\ustc@secret@newtitle\par
   \vskip1.5cm
   \begin{flushright}
   \sihao{学位论文作者签名：\ustc@underline[6cm]{}}\\
+  \vskip1cm
   \sihao{日\hspace{6\ccwd}期：\ustc@underline[6cm]{\hspace{4\ccwd}年\hspace{2\ccwd}月\hspace{2\ccwd}日}}
   \end{flushright}
-  \end{spacing}
   \clearpage
   \if@twoside
     \thispagestyle{empty}
@@ -1173,20 +1203,23 @@
 %  \fancyhf{}
 %  \ifustc@bachelor\fancyhead[C]{\xiaowuhao{中国地质大学学士学位论文}}\relax%\else\fancyhead[C]{\small \nouppercase\leftmark}\fi
 %  \renewcommand{\headrulewidth}{0.7pt}
-\newif\if@frontmatter\@frontmattertrue
+
 \renewcommand\frontmatter{%
     \cleardoublepage
-  %\@frontmattertrue
   \@mainmatterfalse
   \pagenumbering{Roman}
-  \fancyfoot{}
-  \fancyfoot[C]{\small \thepage}
-  \pagestyle{plain}{}
-  \fancyhf{}%
+  \thispagestyle{empty}
+  \pagestyle{empty}
+  %\pagestyle{empty} 
+  %\pagenumbering{} 
+  %\fancyhf{}%
+  % \fancyfoot{}
+  % \fancyfoot[C]{\small \thepage}
   \renewcommand{\headrulewidth}{0pt}
-  }
+  
+}
 
-  \renewcommand\mainmatter{%
+\renewcommand\mainmatter{%
     \cleardoublepage
   \@mainmattertrue
   %\setcounter{page}{1}
@@ -1200,7 +1233,7 @@
   \fancyhead[CO]{\song\xiaowu {中国地质大学硕士学位论文}}
   \fancyhead[CE]{\song\xiaowu \ustc@author :~~ \ustc@spinetitle}
   \fancyhead[LE,RO]{\song\xiaowu ~\thepage~}
-}
+  }
 \pagestyle{plain}
   \fancyhf{}
   \pagestyle{fancy}
@@ -1225,11 +1258,11 @@
 \newenvironment{cnabstract}
   {%
     \cleardoublepage
-    %\thispagestyle{empty}
+    \thispagestyle{empty}
     \begin{center}
     %\renewcommand{\baselinestretch}{0.8}{
     \begin{spacing}{1.0}
-    \hei\sanhao{\ustc@title}\\
+    \hei\xiaoer{\ustc@title}\\
     \vspace{2em}
     \song\xiaosi{硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生:}~\ustc@author \\ 
     {指导教师:}~\ustc@advisor\\
@@ -1237,7 +1270,7 @@
     \hei\sihao{\ustc@cnabstractname}
     \end{spacing}
     \end{center}
-    \hspace{1em}
+    \hspace{0.8em}
     %\renewcommand{\baselinestretch}{0.8}
     \song\wuhao}
   %\ifustc@bachelor\chapter{\texorpdfstring{\ustc@cnabstractname}{摘要}}\else\chapter*{\protect\vskip-10pt\ustc@cnabstractname}\fi}
@@ -1245,7 +1278,7 @@
 \newenvironment{enabstract}
   {%
   \cleardoublepage
-  %\thispagestyle{empty}
+  \thispagestyle{empty}
   
   \begin{center}
   \begin{spacing}{1.0}
@@ -1257,7 +1290,7 @@
   \song\sihao{\ustc@enabstractname}
   \end{spacing}
   \end{center}
-  \hspace{1em}
+  \hspace{0.8em}
   %\renewcommand{\baselinestretch}{0.8}
   \wuhao}
   %\ifustc@bachelor\chapter{ABSTRACT}\else\chapter*{\protect\vskip-10pt{}ABSTRACT}\fi}
@@ -1273,13 +1306,16 @@
 	\renewcommand{\contentsname}{\texorpdfstring{目\hspace{\ccwd}录}{目录}}
 \fi
 \renewcommand\tableofcontents{%
+
     \begin{spacing}{1.0}
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else
       \@restonecolfalse
     \fi
-    \chapter[\contentsname]{\protect\vskip-10pt\contentsname}%
+    \chapter*{\protect\vskip-10pt\contentsname}%
+    \thispagestyle{empty}
+    \pagestyle{empty}
     %
     \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
     \@starttoc{toc}%
@@ -1292,12 +1328,12 @@
   {\thecontentslabel\hspace*{0.5em}}
   {}
   {\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{section}[1.1\ccwd]
+\titlecontents{section}[1.8\ccwd]
   {\vspace{1bp} \wuhao}
   {\S\thecontentslabel\hspace*{0.5em}}
   {}
   {\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{subsection}[2.5\ccwd]%原来是2.3
+\titlecontents{subsection}[3.8\ccwd]%原来是2.3
   {\vspace{1bp} \wuhao}%规定三级标题是10.5pt
   {\thecontentslabel\hspace*{0.5em}}
   {}

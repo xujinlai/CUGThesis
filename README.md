@@ -22,6 +22,12 @@ I recommend **Sublime Text 3** + **LatexTool** + **TexLive** + **SumatraPDF** to
 Because after the configuration, you can compile the whole files with only needing to click **"Ctrl+B"**.
  
 # Update Log
+[20150507] v0.1.2
+Modify some details to satisfy the requirements of CUG master dissertations.
+The modification is below:
+1.delete the Roman page number in the front matter.
+2.modify the details in the cover page and the statement pages.
+
 [20150316] v0.1.1
 Change the sub-chapter files to UTF-8 without BOM.
 Add the top flag to support the LatexTool for the mutil-files compiling and searching in Sublime Text 3.

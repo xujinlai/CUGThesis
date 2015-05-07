@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[master,oldfontcfg,euler,twoside,openright]{cugthesis}
+\documentclass[master,oldfontcfg,euler,twoside,openany]{cugthesis}
 % 默认twoside 双面打印
 % 将master修改为bachelor, doctor or master (暂时只支持硕士毕业论文模版)
 % 要使用adobe字体，添加adobefonts选项
@@ -9,45 +9,48 @@
 
 % 设置图形文件的搜索路径
 \graphicspath{{figures/}}
-
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 %仅用于本示例文档中显示特殊字符串
 \usepackage{xltxtra}
+%仅用于子图
+%\usepackage{graphicx}
+%\usepackage{subfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 封面部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   % 中文封面内容
-  \title{中国地质大学\\研究生毕业论文模板\\示例文档(Beta)}%一般情况下扉页和封皮、书脊共用一个标题文本，可以不用定义\spinetitle（仅硕博有用）, \covertitle（本硕博均有用）和\encovertitle（仅本科有用）。特殊情况见下。
-  \spinetitle{中国地质大学研究生毕业论文模板示例文档(Beta)}
+  \title{MapReduce中间结果重用优化及分析}%一般情况下扉页和封皮、书脊共用一个标题文本，可以不用定义\spinetitle（仅硕博有用）, \covertitle（本硕博均有用）和\encovertitle（仅本科有用）。特殊情况见下。
+  \spinetitle{MapReduce中间结果重用优化及分析}
   %特殊情况1：本例中\title命令里含有换行控制字符，这会导致制作书脊的时候出现错误，例如如果你注释掉\spinetitle{...}这一行就会报错。这时需要定义一个不含换行等命令的\spinetitle，这并不表示\spinetitle里不能有任何命令——只能使用有限的命令。
   %特殊情况2：本例中标题过长，所以需要缩小书脊标题的字号。
   %特殊情况3：本例中中英文混排，由于tex竖排的原理限制，中英文基线不重合，所以需要人工调整英文的基线。具体调整量根据不同字体有所不同。
-  \covertitle{中国地质大学研究生毕业论文\\论文模板示例文档(Beta)}
+  \covertitle{MapReduce中间结果重用优化及分析}
   %\covertitle{中文题目第一行\\中文题目第二行}
   %不要在此调整封皮字体大小！ Do not set Cover Page font size here!
   %特殊情况4：本例中\title中含有多个换行，导致标题超过了两行。根据制本厂规定，封皮标题不能超过两行。因此需要定义封皮使用的标题\covertitle. 如果你注释掉这一行，就会发现封皮不符合规定。
-  \encovertitle{CUG Thesis Template for Master Degree User's Guide(Beta)}
+  \encovertitle{MapReduce Performance Acceleration and Analytics with Intermediate Results Reusing}
   %\encovertitle{English Title Line 1\\English Title Line 2\\English Title Line 3}
   %不要在此调整封皮字体大小！ Do not set Cover Page font size here!
   %特殊情况5:仅本科生有用。本科封皮中有英文标题，不超过三行。与上类似。
 
-  \author{赵\ 钱\ 孙}
+  \author{徐\ 锦\ 来}
   \depart{信息工程学院}%系别，硕博请用系代号，本科请用全称如
   %\depart{数理化和信息工程系}
   \major{软件工程专业}%专业，硕博请用全称，本科不需要
   \advisor{罗忠文\ 教授}
   %\coadvisor{姚宏\ 教授}%第二导师，没有请注释掉
-  \studentid{000000000}%
-  \submitdate{二〇一五年四月}
+  \studentid{120121352}%
+  \submitdate{二〇一五年五月}
   %\numsubmitdate{2015.04}
   % 英文封面内容
-  \entitle{CUG Thesis Template for Master\\User's Guide(Beta)}
-  \enauthor{Qiansun Zhao}
+  \entitle{MapReduce Performance Acceleration and Analytics \\with Intermediate Results Reusing}
+  \enauthor{Jinlai Xu}
   \enmajor{Software Engineering}
   \enadvisor{Prof. Zhongwen Luo}
   %\encoadvisor{Prof. Hong Yao}%另外一个导师
-  \ensubmitdate{2015.04}
+  \ensubmitdate{2015.05}
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % If you use another language instead of chinese and english, then you
@@ -87,6 +90,7 @@
 %% 前言部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frontmatter
+%\pagenumbering{}
 \makeatletter
 \ifustc@bachelor
 	%%%%%%%%%%%%%%%%%
@@ -136,7 +140,7 @@
 	\ustclof
 	%算法索引 
 	%如果需要使用算法环境并列出算法索引，请加入补充宏包。
-	\ustcloa
+	%\ustcloa
 	
 	%符号说明，需要加入补充包
 	\include{chapter/denotation}%不是必需的，如果不想列出请注释掉
@@ -149,8 +153,12 @@
 \mainmatter
 
   \include{chapter/chap-intro}
-  \include{chapter/chap-guide}
-  \include{chapter/chap-example}
+  \include{chapter/chap-analytics}
+  \include{chapter/chap-IntermediateAnalysis}
+  \include{chapter/chap-memomr}
+  \include{chapter/chap-experiment}
+  %\include{chapter/chap-application}
+  \include{chapter/chap-summary}
   %自行添加
   %\include{chapter/...}
 
@@ -158,12 +166,19 @@
 %% 附件部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \backmatter
-
+  \makeatletter
+  \ifustc@bachelor\relax\else
+    % 致谢
+    \include{chapter/thanks}%硕博致谢部分
+    % 发表文章目录
+    %\include{chapter/pub}
+  \fi
+  \makeatother
   % 参考文献
   % 使用 BibTeX
   % 选择参考文献的排版格式。注意ustcbib这个格式不保证完全符合要求，请自行决定是否使用
   \bibliographystyle{cugbib}%{GBT7714-2005NLang-UTF8}
-  \bibliography{bib/tex}
+  \bibliography{bib/ref}
   \nocite{*} % for every item
   % 不使用 BibTeX
   % \include{chapter/bib}
@@ -173,13 +188,8 @@
     \include{chapter/chap-req}
   \end{appendix}
 
-  \makeatletter
-  \ifustc@bachelor\relax\else
-    % 致谢
-	\include{chapter/thanks}%硕博致谢部分
-    % 发表文章目录
-    %\include{chapter/pub}
-  \fi
-  \makeatother
+  
+
+  
 
 \end{document}
