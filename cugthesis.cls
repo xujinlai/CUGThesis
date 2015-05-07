@@ -470,9 +470,9 @@
 \setlength{\bibsep}{0pt plus1pt minus1pt}
 \setlength{\bibhang}{2\ccwd}%Applied only to author-year style
 \RequirePackage[format=hang,labelsep=quad]{caption}
-\DeclareCaptionFont{c5size}{\wuhao}
+\DeclareCaptionFont{c5size}{\xiaowu}
 \captionsetup{labelfont={c5size,bf}}
-\captionsetup{textfont=c5size}
+\captionsetup{textfont={c5size,bf}}
 
 %Chinese font size
 \newcommand{\chuhao}    {\fontsize{42pt}   {\baselineskip}\selectfont}
@@ -646,6 +646,7 @@
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}~}
 %\renewcommand{\subcaplabelfont}{\ftcaptionfont}
 %\renewcommand{\subcapsize}{\ftcaptionfont}
+%\captionsetup{font={\xiaowu\hei}}
 
 %Line and par setup
 %It seems unnecessary since CTeX has already set the \baselinestretch etc.
