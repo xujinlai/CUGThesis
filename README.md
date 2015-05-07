@@ -28,7 +28,8 @@ The modification is below:
 1.delete the Roman page number in the front matter.
 2.modify the details in the cover page and the statement pages.
 3.add the miss empty page after the first statement page.
-4.fix the font size of tables and figures. 
+4.fix the font size of tables and figures.
+5.fix the main matter font size from cs4size to cs5size 
 
 [20150316] v0.1.1
 Change the sub-chapter files to UTF-8 without BOM.

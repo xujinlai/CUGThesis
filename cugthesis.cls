@@ -58,7 +58,7 @@
 %不再鼓励使用$$...$$的方式输入公式，可能会引起奇怪的问题
 %如果一定要用$$...$$输入公式。请在更新到上述版本后加入PlainEquation选项。
 
-\LoadClass[cs4size,executivepaper,fancyhdr,fntef]{ctexbook}
+\LoadClass[cs5size,executivepaper,fancyhdr,fntef]{ctexbook}
       
 %%%%%%%%%%%%%%%%%%%%%%% begin of extra component %%%%%%%%%%%%%%%%%%%%%%
 % extra pack is integreted with the main latex class.
@@ -490,7 +490,7 @@
 \newcommand{\sihao}     {\fontsize{14pt}   {\baselineskip}\selectfont}
 \newcommand{\xiaosi}    {\fontsize{12pt}   {\baselineskip}\selectfont}
 \newcommand{\xiaosihao} {\fontsize{12pt}   {\baselineskip}\selectfont}
-\newcommand{\wuhao}     {\fontsize{10pt} {\baselineskip}\selectfont}
+\newcommand{\wuhao}     {\fontsize{10.5pt} {\baselineskip}\selectfont}
 \newcommand{\xiaowu}    {\fontsize{9pt}    {\baselineskip}\selectfont}
 \newcommand{\xiaowuhao} {\fontsize{9pt}    {\baselineskip}\selectfont}
 \newcommand{\liuhao}    {\fontsize{7.875pt}{\baselineskip}\selectfont}
@@ -1393,7 +1393,8 @@
 	\renewcommand\chaptername{\appendixname~\thechapter}}
   {\if@appendixinbackmatter\@mainmatterfalse\fi
 }
-\renewcommand{\baselinestretch}{1}
+\renewcommand{\baselinestretch}{1.2}
+\wuhao
 \endinput
 %%
 %%
