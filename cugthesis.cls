@@ -471,8 +471,10 @@
 \setlength{\bibhang}{2\ccwd}%Applied only to author-year style
 \RequirePackage[format=hang,labelsep=quad]{caption}
 \DeclareCaptionFont{c5size}{\xiaowu}
-\captionsetup{labelfont={c5size,bf}}
-\captionsetup{textfont={c5size,bf}}
+\captionsetup[table]{labelfont={c5size,bf}}
+\captionsetup[table]{textfont={c5size,bf}}
+\captionsetup[figure]{labelfont={c5size,bf}}
+\captionsetup[figure]{textfont={c5size}}
 
 %Chinese font size
 \newcommand{\chuhao}    {\fontsize{42pt}   {\baselineskip}\selectfont}
