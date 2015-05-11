@@ -528,6 +528,10 @@
 \CTEXsetup[afterskip={18pt}]{chapter}
 \CTEXsetup[format={\centering\hei\sanhao}]{section}%规定14pt，即四号
 \CTEXsetup[format={\flushleft\hei\sihao}]{subsection}%规定13pt
+\CTEXsetup[beforeskip=0pt]{subsection}%规定13pt
+\CTEXsetup[afterskip=0pt]{subsection}%规定13pt
+\CTEXsetup[beforeskip=0pt]{subsubsection}%规定13pt
+\CTEXsetup[afterskip=0pt]{subsubsection}%规定13pt
 \CTEXsetup[format={\flushleft\hei\xiaosihao}]{subsubsection}%规定12pt，即小四号
 \CTEXsetup[number={\S\arabic{chapter}.\arabic{section}}]{section}
 \ifustc@notchinese
@@ -1399,6 +1403,12 @@
 }
 \renewcommand{\baselinestretch}{1.2}
 \wuhao
+%\renewcommand{\listparsep}{0ex} %段落间距
+%\renewcommand{\listtopsep}{0ex} %列表到上下文的垂直距离
+%\renewcommand{\listitemsep}{0ex} %条目间距
+%\renewcommand{\listlabelsep}{0.5em} %标号和列表项之间的距离,默认0.5em
+%\renewcommand{\listitemindent}{0em} %标签缩进量
+%\renewcommand{\listparindent}{0em} %段落缩进量
 \endinput
 %%
 %%
