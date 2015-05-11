@@ -473,7 +473,7 @@
 \DeclareCaptionFont{c5size}{\xiaowu}
 \captionsetup[table]{labelfont={c5size,bf}}
 \captionsetup[table]{textfont={c5size,bf}}
-\captionsetup[figure]{labelfont={c5size,bf}}
+\captionsetup[figure]{labelfont={c5size}}
 \captionsetup[figure]{textfont={c5size}}
 
 %Chinese font size
@@ -783,21 +783,21 @@
   {\begin{spacing}{1.5}
   \sanhao
   \ifustc@bachelor\begin{tabular}{lc}%
-	  \bfseries{姓\hspace{2\ccwd}名：} & \ustc@underline[6cm]{\ustc@author}\\
-	  \bfseries{院\hspace{2\ccwd}系：} & \ustc@underline[6cm]{\ustc@depart}\\
-	  \bfseries{学\hspace{2\ccwd}号：} & \ustc@underline[6cm]{\ustc@studentid}\\
-	  \bfseries{导\hspace{2\ccwd}师：} & \ustc@underline[6cm]{\ustc@advisor}\\
-	  \ifx\ustc@coadvisor\@empty\else & \ustc@underline[6cm]{\ustc@coadvisor}\\\fi
-	  \bfseries{完成时间：} & \ustc@underline[6cm]{\ustc@submitdate}
+	  \bfseries{姓\hspace{2\ccwd}名：} & \ustc@author\\
+	  \bfseries{院\hspace{2\ccwd}系：} & \ustc@depart\\
+	  \bfseries{学\hspace{2\ccwd}号：} & \ustc@studentid\\
+	  \bfseries{导\hspace{2\ccwd}师：} & \ustc@advisor\\
+	  \ifx\ustc@coadvisor\@empty\else & \ustc@coadvisor\\\fi
+	  \bfseries{完成时间：} & \ustc@submitdate
 	\end{tabular}
   \else	\begin{tabular}{lc}%
-	  {学\hspace{2\ccwd}号：} & \ustc@underline[6cm]{\ustc@studentid}\\
-	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@underline[6cm]{\ustc@author}\\
-	  {学科专业：} & \ustc@underline[6cm]{\ustc@major}\\
-	  {指导教师：} & \ustc@underline[6cm]{\ustc@advisor}\\
+	  {学\hspace{2\ccwd}号：} & \ustc@studentid\\
+	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@author\\
+	  {学科专业：} & \ustc@major\\
+	  {指导教师：} & \ustc@advisor\\
 	  \ifx\ustc@coadvisor\@empty\else
-	                        & \ustc@underline[6cm]{\ustc@coadvisor}\\\fi
-	  {所在学院：} & \ustc@underline[6cm]{\ustc@depart}
+	                        & \ustc@coadvisor\\\fi
+	  {所在学院：} & \ustc@depart
 	\end{tabular}
   \fi
   \end{spacing}}
@@ -853,11 +853,11 @@
   	  \bfseries{完成时间：} & \ustc@underline[6cm]{\ustc@submitdate}
   	\end{tabular}
     \else	\begin{tabular}{lc}%
-  	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@underline[6cm]{\ustc@author}\\
-  	  {学科专业：} & \ustc@underline[6cm]{\ustc@major}\\
-  	  {指导教师：} & \ustc@underline[6cm]{\ustc@advisor}\\
+  	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@author\\
+  	  {学科专业：} & \ustc@major\\
+  	  {指导教师：} & \ustc@advisor\\
   	  \ifx\ustc@coadvisor\@empty\else
-  	                        & \ustc@underline[6cm]{\ustc@coadvisor}\fi
+  	                        & \ustc@coadvisor\fi
   	\end{tabular}
     \fi
     \end{spacing}}
@@ -924,9 +924,9 @@
 	  \end{tabular}
   \else
 	  \begin{tabular}{lc}
-	  	Master Candidate:& \ustc@underline[6cm]{\ustc@enauthor}\\
-	  	Major :& \ustc@underline[6cm]{\ustc@enmajor}\\
-	  	Supervisor :& \ustc@underline[6cm]{\ustc@enadvisor}\\
+	  	Master Candidate:& \ustc@enauthor\\
+	  	Major :& \ustc@enmajor\\
+	  	Supervisor :& \ustc@enadvisor\\
 		\ifx\ustc@encoadvisor\@empty\else
 	                     & \ustc@underline[6cm]{\ustc@encoadvisor}\\
 	    \fi
@@ -1259,9 +1259,9 @@
 	\newcommand{\ustc@thanksname}{致\hspace{\ccwd}谢}
 \fi
 \newcommand\keywords[1]{%
-  \vspace{3.5ex}\noindent{\bfseries 关键词：~} #1}
+  \vspace{3.5ex}\noindent\bfseries{ 关键词：~ #1}}
 \newcommand\enkeywords[1]{%
-  \vspace{3.5ex}\noindent{\bf Keywords:~} #1}
+  \vspace{3.5ex}\noindent\bf{ Keywords:~ #1}}
 \newenvironment{cnabstract}
   {%
     \cleardoublepage
@@ -1271,10 +1271,12 @@
     \begin{spacing}{1.0}
     \hei\xiaoer{\ustc@title}\\
     \vspace{2em}
-    \song\xiaosi{硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生:}~\ustc@author \\ 
-    {指导教师:}~\ustc@advisor\\
+    \begin{tabular}{ll}
+    \song\xiaosi{硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生:}~&\song\xiaosi{\ustc@author} \\ 
+    \song\xiaosi{指导教师:}~&\song\xiaosi{\ustc@advisor}
+    \end{tabular}\\
     \vspace{2em}
-    \hei\sihao{\ustc@cnabstractname}
+    \hei\sihao\textbf{\ustc@cnabstractname}
     \end{spacing}
     \end{center}
     \hspace{0.8em}
@@ -1291,8 +1293,10 @@
   \begin{spacing}{1.0}
   \song\xiaoer{\ustc@entitle}\\
   \vspace{2em}
-  \song\xiaosi{Master Candidate:}~\ustc@enauthor \\ 
-  {Supervisor:}~\ustc@enadvisor\\
+  \begin{tabular}{l}
+  \song\xiaosi{Master Candidate:}~\song\xiaosi{\ustc@enauthor} \\ 
+  \song\xiaosi{Supervisor:}~\song\xiaosi{\ustc@enadvisor}
+  \end{tabular}\\
   \vspace{2em}
   \song\sihao{\ustc@enabstractname}
   \end{spacing}
