@@ -1245,7 +1245,6 @@
 %\def\bibpreamble{\linespread{0.2}}
 \renewcommand{\bibsection}{
   \chapter{\bibname}
-\renewcommand{\baselinestretch}{0.8}
   %\setlength{\linestretch}{1.0}
   \xiaowu%%\small
   %\linespread{1.36}
