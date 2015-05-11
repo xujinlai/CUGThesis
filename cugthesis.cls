@@ -764,8 +764,8 @@
     \song\sanhao{分类号:}~\CUGTunderline[70pt]{} 
             \hfill
     \song\sanhao{密\hspace{1\ccwd}级:}~\CUGTunderline[70pt]{} \\
-    \vspace{5em}
-    \begin{spacing}{1.3}
+    \vspace{3em}
+    \begin{spacing}{1.35}
     \centering\erhao\hei{中国地质大学} \\
     \erhao\hei\ifustc@doctor
       {博士学位论文}
@@ -825,8 +825,8 @@
       \song\sanhao{学校代码:}~{10491} 
               \hfill
       \song\sanhao{研究生学号:}~{\ustc@studentid} \\
-      \vspace{5em}
-      \begin{spacing}{1.4}
+      \vspace{3em}
+      \begin{spacing}{1.45}
       \centering\erhao\hei\bfseries{中国地质大学 \\
       \erhao\hei\ifustc@doctor
         {博士学位论文}
@@ -910,7 +910,7 @@
             \end{spacing}
   \end{center}
   %\vskip 1.0cm %1.8cm 2cm 3.1cm
-  \vspace{5em}
+  \vspace{4em}
   \begin{center}
   {%
   \begin{spacing}{1.5}
@@ -1145,7 +1145,7 @@
     \hei\sihao\textbf{\ustc@cnabstractname}
     \end{spacing}
     \end{center}
-    \vspace{2em}
+
     %\renewcommand{\baselinestretch}{0.8}
     }
   %\ifustc@bachelor\chapter{\texorpdfstring{\ustc@cnabstractname}{摘要}}\else\chapter*{\protect\vskip-10pt\ustc@cnabstractname}\fi}
@@ -1167,9 +1167,9 @@
   \song\sihao{\ustc@enabstractname}
   \end{spacing}
   \end{center}
-  \vspace{2em}
+
   %\renewcommand{\baselinestretch}{0.8}
-  \wuhao}
+  }
   %\ifustc@bachelor\chapter{ABSTRACT}\else\chapter*{\protect\vskip-10pt{}ABSTRACT}\fi}
   {}
 \renewenvironment{thanks}
