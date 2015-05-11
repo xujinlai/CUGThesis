@@ -1335,12 +1335,12 @@
   {\thecontentslabel\hspace*{0.5em}}
   {}
   {\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{section}[1.8\ccwd]
+\titlecontents{section}[2\ccwd]
   {\vspace{1bp} \wuhao}
   {\S\thecontentslabel\hspace*{0.5em}}
   {}
   {\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{subsection}[3.8\ccwd]%原来是2.3
+\titlecontents{subsection}[4.2\ccwd]%原来是2.3
   {\vspace{1bp} \wuhao}%规定三级标题是10.5pt
   {\thecontentslabel\hspace*{0.5em}}
   {}
