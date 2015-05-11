@@ -58,7 +58,7 @@
 %不再鼓励使用$$...$$的方式输入公式，可能会引起奇怪的问题
 %如果一定要用$$...$$输入公式。请在更新到上述版本后加入PlainEquation选项。
 
-\LoadClass[cs5size,executivepaper,fancyhdr,fntef]{ctexbook}
+\LoadClass[c5size,executivepaper,fancyhdr,fntef]{ctexbook}
       
 %%%%%%%%%%%%%%%%%%%%%%% begin of extra component %%%%%%%%%%%%%%%%%%%%%%
 % extra pack is integreted with the main latex class.
@@ -112,7 +112,7 @@
 \fi
 \renewcommand{\listalgorithmcfname}{\ustc@ustcloaname}
 \newcommand\ustcloa{
-\cleardoublepage\listofalgorithms
+\cleardoublepage\wuhao{\listofalgorithms}
   \thispagestyle{empty}
   \pagestyle{empty}}
 
@@ -470,11 +470,11 @@
 \setlength{\bibsep}{0pt plus1pt minus1pt}
 \setlength{\bibhang}{2\ccwd}%Applied only to author-year style
 \RequirePackage[format=hang,labelsep=quad]{caption}
-\DeclareCaptionFont{c5size}{\xiaowu}
-\captionsetup[table]{labelfont={c5size,bf}}
-\captionsetup[table]{textfont={c5size,bf}}
-\captionsetup[figure]{labelfont={c5size}}
-\captionsetup[figure]{textfont={c5size}}
+\DeclareCaptionFont{cs5size}{\xiaowu}
+\captionsetup[table]{labelfont={cs5size,bf}}
+\captionsetup[table]{textfont={cs5size,bf}}
+\captionsetup[figure]{labelfont={cs5size}}
+\captionsetup[figure]{textfont={cs5size}}
 
 %Chinese font size
 \newcommand{\chuhao}    {\fontsize{42pt}   {\baselineskip}\selectfont}
@@ -564,11 +564,11 @@
 \CTEXoptions[listfigurename={\ustc@ustclofname}]
 \CTEXoptions[listtablename={\ustc@ustclotname}]
 \newcommand\ustclot{\cleardoublepage
-\listoftables
+\wuhao{\listoftables}
 \thispagestyle{empty}
 \pagestyle{empty}}
 \newcommand\ustclof{\cleardoublepage
-\listoffigures
+\wuhao{\listoffigures}
   \thispagestyle{empty}
   \pagestyle{empty}}
 
@@ -794,7 +794,7 @@
 	  \ifx\ustc@coadvisor\@empty\else & \ustc@coadvisor\\\fi
 	  \bfseries{完成时间：} & \ustc@submitdate
 	\end{tabular}
-  \else	\begin{tabular}{lc}%
+  \else	\begin{tabular}{ll}%
 	  {学\hspace{2\ccwd}号：} & \ustc@studentid\\
 	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@author\\
 	  {学科专业：} & \ustc@major\\
@@ -856,7 +856,7 @@
   	  \ifx\ustc@coadvisor\@empty\else & \ustc@underline[6cm]{\ustc@coadvisor}\\\fi
   	  \bfseries{完成时间：} & \ustc@underline[6cm]{\ustc@submitdate}
   	\end{tabular}
-    \else	\begin{tabular}{lc}%
+    \else	\begin{tabular}{ll}%
   	  {硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生：} & \ustc@author\\
   	  {学科专业：} & \ustc@major\\
   	  {指导教师：} & \ustc@advisor\\
@@ -916,7 +916,7 @@
   \begin{spacing}{1.5}
   \xiaosan
   \ifustc@bachelor
-	  \begin{tabular}{lc}
+	  \begin{tabular}{ll}
 	  	Author :& \ustc@underline[6cm]{\ustc@enauthor}\\
 	  	Department :& \ustc@underline[6cm]{\ustc@endepart}\\
 	  	Student ID :& \ustc@underline[6cm]{\ustc@studentid}\\
@@ -927,10 +927,10 @@
 	  	Finished Time :& \ustc@underline[6cm]{\ustc@ensubmitdate}
 	  \end{tabular}
   \else
-	  \begin{tabular}{lc}
-	  	Master Candidate:& \ustc@enauthor\\
-	  	Major :& \ustc@enmajor\\
-	  	Supervisor :& \ustc@enadvisor\\
+	  \begin{tabular}{l}
+	  	Master Candidate :~\ustc@enauthor\\
+	  	Major :~\ustc@enmajor\\
+	  	Supervisor :~\ustc@enadvisor\\
 		\ifx\ustc@encoadvisor\@empty\else
 	                     & \ustc@underline[6cm]{\ustc@encoadvisor}\\
 	    \fi
@@ -1005,144 +1005,6 @@
     \thispagestyle{empty}
     \cleardoublepage
   \fi
-}
-
-%Cover page and book spine for bachelor, master and doctor
-\newcommand{\cover@cnfontsize}{\relax}
-\newcommand{\cover@enfontsize}{\relax}
-\newcommand{\cover@defaultfontsize}{\fontsize{17pt}{\baselineskip}\selectfont}
-\newlength{\cover@cnvoffset}
-\newlength{\cover@cnhoffset}
-\newlength{\cover@envoffset}
-\newlength{\cover@enhoffset}
-\newlength{\cover@cntitleh}
-\newlength{\cover@entitleh}
-\newcommand{\c@scn}[4]{
-  \def\c@s@default{17pt}
-  \def\c@s@var{#1}
-  \ifx\c@s@var\c@s@default\renewcommand{\cover@cnfontsize}{\cover@defaultfontsize}\else\renewcommand{\cover@cnfontsize}{\zihao{#1}}\fi
-  \setlength{\cover@cnvoffset}{#2}
-  \setlength{\cover@cnhoffset}{#3}
-  \setlength{\cover@cntitleh}{#4}}
-\newcommand{\c@sen}[4]{
-  \def\c@s@default{17pt}
-  \def\c@s@var{#1}
-  \ifx\c@s@var\c@s@default\renewcommand{\cover@enfontsize}{\cover@defaultfontsize}\else\renewcommand{\cover@enfontsize}{\zihao{#1}}\fi
-  \setlength{\cover@envoffset}{#2}
-  \setlength{\cover@enhoffset}{#3}
-  \setlength{\cover@entitleh}{#4}}
-
-\newcommand\make@bookspine[2]{
-  \def\cover@varcn{#1}
-  \def\cover@varen{#2}
-  \def\cover@san{3}
-  \def\cover@ssan{-3}
-  \def\cover@si{4}
-  \def\cover@ssi{-4}
-  \def\cover@wu{5}
-  \def\cover@swu{-5}
-
-  \ifustc@bachelor%cover page for bachelor
-    \ifx\cover@varcn\cover@san\c@scn{#1}{0mm}{-8.5mm}{1.6cm}\else
-      \ifx\cover@varcn\cover@ssan\c@scn{#1}{0.5mm}{-8.5mm}{1.55cm}\else
-        \ifx\cover@varcn\cover@si\c@scn{#1}{1mm}{-8.5mm}{1.5cm}\else
-          \ifx\cover@varcn\cover@ssi\c@scn{#1}{1.5mm}{-8.5mm}{1.45cm}\else
-            \ifx\cover@varcn\cover@wu\c@scn{#1}{2mm}{-8.5mm}{1.4cm}\else
-              \ifx\cover@varcn\cover@swu\c@scn{#1}{2.5mm}{-8.5mm}{1.35cm}\else
-                \c@scn{17pt}{0mm}{-0.85cm}{1.6cm}
-              \fi
-            \fi
-          \fi
-        \fi
-      \fi       
-    \fi
-    \ifx\cover@varen\cover@san\c@sen{#2}{5mm}{0mm}{2.55cm}\else
-      \ifx\cover@varen\cover@ssan\c@sen{#2}{5.5mm}{0mm}{2.5cm}\else
-        \ifx\cover@varen\cover@si\c@sen{#2}{6mm}{0mm}{2.45cm}\else
-          \ifx\cover@varen\cover@ssi\c@sen{#2}{6.5mm}{0mm}{2.4cm}\else
-            \ifx\cover@varen\cover@wu\c@sen{#2}{7mm}{0mm}{2.35cm}\else
-              \ifx\cover@varen\cover@swu\c@sen{#2}{7.5mm}{0mm}{2.3cm}\else
-                \c@sen{17pt}{4.5mm}{0mm}{2.6cm}
-              \fi
-            \fi
-          \fi
-        \fi
-      \fi       
-    \fi
-    \newgeometry{top=17.4cm,bottom=1.1cm,left=6cm,right=5.5cm}
-    \clearpage
-    \thispagestyle{empty}
-    \rule{0mm}{0mm}\vskip\cover@cnvoffset\hspace{\cover@cnhoffset}
-    \begin{minipage}[c]{9.7cm}
-      \begin{minipage}[c][\cover@cntitleh][s]{9.5cm}
-	    \centering\bfseries\cover@cnfontsize\baselineskip=1\baselineskip plus 1fill\lineskip=0pt plus 1fill
-        \ifx\ustc@covertitle\@empty\ustc@title\else\ustc@covertitle\fi
-      \end{minipage}\vskip\cover@envoffset\hskip\cover@enhoffset
-      \begin{minipage}[c][\cover@entitleh][s]{9.5cm}
-	    \centering\bfseries\cover@enfontsize\baselineskip=1\baselineskip plus 1fill\lineskip=0pt plus 1fill
-        \ifx\ustc@encovertitle\@empty\ustc@entitle\else\ustc@encovertitle\fi
-      \end{minipage}\vskip 0.5cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{9.5cm}
-	    \centering\bfseries\cover@defaultfontsize\ustc@depart
-      \end{minipage}\vskip -0.5cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{9.5cm}
-        \centering\bfseries\cover@defaultfontsize\ustc@author\hfil\ustc@studentid
-      \end{minipage}\vskip -0.5cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{9.5cm}
-        \centering\bfseries\cover@defaultfontsize\ustc@advisor\ifx\ustc@coadvisor\@empty\else\quad\ustc@coadvisor\fi
-      \end{minipage}\vskip -0.5cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{9.5cm}
-        \centering\bfseries\cover@defaultfontsize\ustc@submitdate
-      \end{minipage}
-    \end{minipage}
-  \else
-    \ifx\cover@varcn\cover@san\c@scn{#1}{-7.3cm}{6.2cm}{1.5cm}\else
-      \ifx\cover@varcn\cover@ssan\c@scn{#1}{-7.3cm}{6.2cm}{1.5cm}\else
-        \ifx\cover@varcn\cover@si\c@scn{#1}{-7.2cm}{6.2cm}{1.4cm}\else
-          \ifx\cover@varcn\cover@ssi\c@scn{#1}{-7.2cm}{6.2cm}{1.4cm}\else
-            \ifx\cover@varcn\cover@wu\c@scn{#1}{-7.1cm}{6.2cm}{1.3cm}\else
-              \ifx\cover@varcn\cover@swu\c@scn{#1}{-7.1cm}{6.2cm}{1.3cm}\else
-                \c@scn{17pt}{-7.4cm}{6.2cm}{1.5cm}
-              \fi
-            \fi
-          \fi
-        \fi
-      \fi       
-    \fi
-    \c@sen{17pt}{0cm}{0cm}{10cm}
-    \newgeometry{top=2cm,bottom=2cm,left=1.2cm,right=19.5cm}
-    \clearpage
-    \thispagestyle{empty}
-    \begin{flushleft}
-      \rotatebox{-90}{\makebox[23.7cm][c]{\ziju{0.17}\ustc@verthei\zihao{-4}{\ifx\ustc@spinetitle\@empty\ustc@title\else\ustc@spinetitle\fi\hfil\hfil\ustc@depart\hfil\hfil\ustc@author\hfil\hfil{}中国地质大学}}}
-    \end{flushleft}
-    \vspace{\cover@cnvoffset}\hspace{\cover@cnhoffset}
-    \begin{minipage}[c]{12.2cm}
-      \begin{minipage}[c][\cover@cntitleh][s]{12cm}
-	    \centering\bfseries\cover@cnfontsize\baselineskip=1\baselineskip plus 1fill\lineskip=0pt plus 1fill
-        \ifx\ustc@covertitle\@empty\ustc@title\else\ustc@covertitle\fi
-      \end{minipage}\vskip 0.6cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{12cm}
-	    \centering\bfseries\cover@defaultfontsize\ustc@author
-      \end{minipage}\vskip -0.6cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{12cm}
-        \centering\bfseries\cover@defaultfontsize\ustc@major
-      \end{minipage}\vskip -0.6cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{12cm}
-        \centering\bfseries\cover@defaultfontsize\ustc@advisor\ifx\ustc@coadvisor\@empty\else\quad\ustc@coadvisor\fi
-      \end{minipage}\vskip -0.6cm\hskip 0cm
-      \begin{minipage}[c][1.5cm][s]{12cm}
-        \centering\bfseries\cover@defaultfontsize\ustc@submitdate
-      \end{minipage}
-    \end{minipage}
-  \fi
-  \if@twoside
-    \thispagestyle{empty}
-    \cleardoublepage
-  \else
-    \clearpage  
-  \fi
-  \restoregeometry
 }
 
 %Define head rule
@@ -1272,20 +1134,20 @@
     \thispagestyle{empty}
     \begin{center}
     %\renewcommand{\baselinestretch}{0.8}{
-    \begin{spacing}{1.0}
+    \begin{spacing}{1.2}
     \hei\xiaoer{\ustc@title}\\
-    \vspace{2em}
+    \vspace{1em}
     \begin{tabular}{ll}
     \song\xiaosi{硕\hspace{0.5\ccwd}士\hspace{0.5\ccwd}生:}~&\song\xiaosi{\ustc@author} \\ 
     \song\xiaosi{指导教师:}~&\song\xiaosi{\ustc@advisor}
     \end{tabular}\\
-    \vspace{2em}
+    \vspace{1em}
     \hei\sihao\textbf{\ustc@cnabstractname}
     \end{spacing}
     \end{center}
-    \hspace{0.8em}
+    \vspace{2em}
     %\renewcommand{\baselinestretch}{0.8}
-    \song\wuhao}
+    }
   %\ifustc@bachelor\chapter{\texorpdfstring{\ustc@cnabstractname}{摘要}}\else\chapter*{\protect\vskip-10pt\ustc@cnabstractname}\fi}
   {}
 \newenvironment{enabstract}
@@ -1294,18 +1156,18 @@
   \thispagestyle{empty}
   
   \begin{center}
-  \begin{spacing}{1.0}
+  \begin{spacing}{1.2}
   \song\xiaoer{\ustc@entitle}\\
-  \vspace{2em}
+  \vspace{1em}
   \begin{tabular}{l}
   \song\xiaosi{Master Candidate:}~\song\xiaosi{\ustc@enauthor} \\ 
   \song\xiaosi{Supervisor:}~\song\xiaosi{\ustc@enadvisor}
   \end{tabular}\\
-  \vspace{2em}
+  \vspace{1em}
   \song\sihao{\ustc@enabstractname}
   \end{spacing}
   \end{center}
-  \hspace{0.8em}
+  \vspace{2em}
   %\renewcommand{\baselinestretch}{0.8}
   \wuhao}
   %\ifustc@bachelor\chapter{ABSTRACT}\else\chapter*{\protect\vskip-10pt{}ABSTRACT}\fi}
@@ -1401,7 +1263,7 @@
 	\renewcommand\chaptername{\appendixname~\thechapter}}
   {\if@appendixinbackmatter\@mainmatterfalse\fi
 }
-\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\baselinestretch}{1.05}
 \wuhao
 %\renewcommand{\listparsep}{0ex} %段落间距
 %\renewcommand{\listtopsep}{0ex} %列表到上下文的垂直距离
