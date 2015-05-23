@@ -525,8 +525,10 @@
 \CTEXsetup[nameformat={\song\erhao}]{chapter}
 \CTEXsetup[titleformat={\song\erhao}]{chapter}
 \CTEXsetup[beforeskip={0pt}]{chapter}
-\CTEXsetup[afterskip={18pt}]{chapter}
+\CTEXsetup[afterskip={30pt}]{chapter}
 \CTEXsetup[format={\centering\hei\sanhao}]{section}%规定14pt，即四号
+\CTEXsetup[beforeskip=15pt]{section}%规定13pt
+\CTEXsetup[afterskip=15pt]{section}%规定13pt
 \CTEXsetup[format={\flushleft\hei\sihao}]{subsection}%规定13pt
 \CTEXsetup[beforeskip=0pt]{subsection}%规定13pt
 \CTEXsetup[afterskip=0pt]{subsection}%规定13pt
@@ -1135,6 +1137,7 @@
     \begin{center}
     %\renewcommand{\baselinestretch}{0.8}{
     \begin{spacing}{1.2}
+    \vspace*{2em}
     \hei\xiaoer{\ustc@title}\\
     \vspace{1em}
     \begin{tabular}{ll}
@@ -1142,7 +1145,7 @@
     \song\xiaosi{指导教师:}~&\song\xiaosi{\ustc@advisor}
     \end{tabular}\\
     \vspace{1em}
-    \hei\sihao\textbf{\ustc@cnabstractname}
+    \hei\sihao{\ustc@cnabstractname}
     \end{spacing}
     \end{center}
 
@@ -1154,9 +1157,9 @@
   {%
   \cleardoublepage
   \thispagestyle{empty}
-  
   \begin{center}
   \begin{spacing}{1.2}
+  \vspace*{2em}
   \song\xiaoer{\ustc@entitle}\\
   \vspace{1em}
   \begin{tabular}{l}
