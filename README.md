@@ -22,6 +22,12 @@ I recommend **Sublime Text 3** + **LatexTool** + **TexLive** + **SumatraPDF** to
 Because after the configuration, you can compile the whole files with only needing to click **"Ctrl+B"**.
  
 # Update Log
+[20150523] v0.1.2.1
+添加国标论文引用格式
+GB/T 7714—2005《文后参考文献著录规则》
+使用方法将main.tex中的\bibliographystyle参数改为gbt7714-2005
+即:\bibliographystyle{gbt7714-2005}
+
 [20150507] v0.1.2
 Modify some details to satisfy the requirements of CUG master dissertations.
 The modification is below:
@@ -29,7 +35,7 @@ The modification is below:
 2.modify the details in the cover page and the statement pages.
 3.add the miss empty page after the first statement page.
 4.fix the font size of tables and figures.
-5.fix the main matter font size from cs4size to cs5size 
+5.fix the main matter font size from cs4size to c5size 
 
 [20150316] v0.1.1
 Change the sub-chapter files to UTF-8 without BOM.
