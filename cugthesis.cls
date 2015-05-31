@@ -403,6 +403,19 @@
 \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
 %remember to use [htp] or [htpb] for placement
 
+%Add by xujinlai@gmail.com: set the float sep to 0pt
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\floatsep}{0pt}
+\setlength{\textfloatsep}{5pt}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\arraycolsep}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+\setlength{\itemsep}{0pt}
+
 %Check if user has specified one dissertation option.
 \ifustc@master\relax\else
 	\ifustc@doctor\relax\else
@@ -524,14 +537,14 @@
 \CTEXsetup[format={\centering}]{chapter}%规定16pt，三号为15.75pt
 \CTEXsetup[nameformat={\song\erhao}]{chapter}
 \CTEXsetup[titleformat={\song\erhao}]{chapter}
-\CTEXsetup[beforeskip={0pt}]{chapter}
-\CTEXsetup[afterskip={30pt}]{chapter}
+\CTEXsetup[beforeskip={15pt}]{chapter}
+\CTEXsetup[afterskip={45pt}]{chapter}
 \CTEXsetup[format={\centering\hei\sanhao}]{section}%规定14pt，即四号
 \CTEXsetup[beforeskip=15pt]{section}%规定13pt
-\CTEXsetup[afterskip=15pt]{section}%规定13pt
+\CTEXsetup[afterskip=20pt]{section}%规定13pt
 \CTEXsetup[format={\flushleft\hei\sihao}]{subsection}%规定13pt
-\CTEXsetup[beforeskip=0pt]{subsection}%规定13pt
-\CTEXsetup[afterskip=0pt]{subsection}%规定13pt
+\CTEXsetup[beforeskip=-5pt]{subsection}%规定13pt
+\CTEXsetup[afterskip=-5pt]{subsection}%规定13pt
 \CTEXsetup[beforeskip=0pt]{subsubsection}%规定13pt
 \CTEXsetup[afterskip=0pt]{subsubsection}%规定13pt
 \CTEXsetup[format={\flushleft\hei\xiaosihao}]{subsubsection}%规定12pt，即小四号
@@ -1036,6 +1049,7 @@
  % \pdfbookmark{原创与授权声明}{authorization}
   \cleardoublepage
   \thispagestyle{empty}
+  \vspace*{2em}
   \begin{center}\xiaoer\bfseries{中国地质大学（武汉）研究生学位论文原创性声明}\end{center}
   \vskip1.5cm
   \begin{spacing}{1.5}
@@ -1053,6 +1067,7 @@
     \cleardoublepage
   \fi
    \thispagestyle{empty}
+   \vspace*{2em}
   \begin{center}\xiaoer\bfseries{中国地质大学（武汉）学位论文使用授权书}\end{center}
   \vskip1.5cm
   \begin{spacing}{1.5}
@@ -1134,9 +1149,9 @@
   {%
     \cleardoublepage
     \thispagestyle{empty}
-    \begin{center}
     %\renewcommand{\baselinestretch}{0.8}{
     \begin{spacing}{1.2}
+    \begin{center}
     \vspace*{2em}
     \hei\xiaoer{\ustc@title}\\
     \vspace{1em}
@@ -1146,19 +1161,19 @@
     \end{tabular}\\
     \vspace{1em}
     \hei\sihao{\ustc@cnabstractname}
-    \end{spacing}
+    \vspace{0.9em}
     \end{center}
-
+    \end{spacing}
     %\renewcommand{\baselinestretch}{0.8}
-    }
+  }
   %\ifustc@bachelor\chapter{\texorpdfstring{\ustc@cnabstractname}{摘要}}\else\chapter*{\protect\vskip-10pt\ustc@cnabstractname}\fi}
   {}
 \newenvironment{enabstract}
   {%
   \cleardoublepage
   \thispagestyle{empty}
-  \begin{center}
   \begin{spacing}{1.2}
+  \begin{center}
   \vspace*{2em}
   \song\xiaoer{\ustc@entitle}\\
   \vspace{1em}
@@ -1168,9 +1183,9 @@
   \end{tabular}\\
   \vspace{1em}
   \song\sihao{\ustc@enabstractname}
-  \end{spacing}
+  \vspace{1em}
   \end{center}
-
+  \end{spacing}
   %\renewcommand{\baselinestretch}{0.8}
   }
   %\ifustc@bachelor\chapter{ABSTRACT}\else\chapter*{\protect\vskip-10pt{}ABSTRACT}\fi}
@@ -1207,17 +1222,17 @@
   {\vspace{1bp}\wuhao}%14pt，如果希望美观一些，可以无视章节标题用宋体的规定，自行添加\bfseries
   {\thecontentslabel\hspace*{0.5em}}
   {}
-  {\titlerule*[0.5pc]{$\cdot$}\contentspage}
+  {\titlerule*[0.2pc]{$\cdot$}\contentspage}
 \titlecontents{section}[2\ccwd]
   {\vspace{1bp} \wuhao}
   {\S\thecontentslabel\hspace*{0.5em}}
   {}
-  {\titlerule*[0.5pc]{$\cdot$}\contentspage}
+  {\titlerule*[0.2pc]{$\cdot$}\contentspage}
 \titlecontents{subsection}[4.2\ccwd]%原来是2.3
   {\vspace{1bp} \wuhao}%规定三级标题是10.5pt
   {\thecontentslabel\hspace*{0.5em}}
   {}
- {\titlerule*[0.5pc]{$\cdot$}\contentspage}
+ {\titlerule*[0.2pc]{$\cdot$}\contentspage}
 
 %\addtocontents{toc}{\let\string\CTEX@spaceChar\relax}
 %\newdimen\bibspace
