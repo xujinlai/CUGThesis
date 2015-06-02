@@ -539,7 +539,7 @@
 \CTEXsetup[nameformat={\song\erhao}]{chapter}
 \CTEXsetup[titleformat={\song\erhao}]{chapter}
 \CTEXsetup[beforeskip={15pt}]{chapter}
-\CTEXsetup[afterskip={45pt}]{chapter}
+\CTEXsetup[afterskip={35pt}]{chapter}
 \CTEXsetup[format={\centering\hei\sanhao}]{section}%规定14pt，即四号
 %\CTEXsetup[beforeskip=15pt]{section}%规定13pt
 %\CTEXsetup[afterskip=35pt]{section}%规定13pt
@@ -567,7 +567,7 @@
 	\relax
 \fi
 \titlespacing*{\section}
-  {0pt}{9pt}{19pt}
+  {0pt}{19pt}{19pt}
 \titlespacing*{\subsection}
   {0pt}{5pt}{5pt}
 \titlespacing*{\subsubsection}
