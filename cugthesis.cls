@@ -415,6 +415,7 @@
 \setlength{\topsep}{0pt}
 \setlength{\partopsep}{0pt}
 \setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
 
 %Check if user has specified one dissertation option.
 \ifustc@master\relax\else
@@ -540,8 +541,8 @@
 \CTEXsetup[beforeskip={15pt}]{chapter}
 \CTEXsetup[afterskip={45pt}]{chapter}
 \CTEXsetup[format={\centering\hei\sanhao}]{section}%规定14pt，即四号
-\CTEXsetup[beforeskip=15pt]{section}%规定13pt
-\CTEXsetup[afterskip=20pt]{section}%规定13pt
+%\CTEXsetup[beforeskip=15pt]{section}%规定13pt
+%\CTEXsetup[afterskip=35pt]{section}%规定13pt
 \CTEXsetup[format={\flushleft\hei\sihao}]{subsection}%规定13pt
 \CTEXsetup[beforeskip=-5pt]{subsection}%规定13pt
 \CTEXsetup[afterskip=-5pt]{subsection}%规定13pt
@@ -565,6 +566,13 @@
 \else
 	\relax
 \fi
+\titlespacing*{\section}
+  {0pt}{9pt}{19pt}
+\titlespacing*{\subsection}
+  {0pt}{5pt}{5pt}
+\titlespacing*{\subsubsection}
+  {0pt}{5pt}{5pt}
+
 
 %Define new commands for List of Figures/Tables
 \ustc@define@term{ustclofname}
@@ -1175,7 +1183,7 @@
   \begin{spacing}{1.2}
   \begin{center}
   \vspace*{2em}
-  \song\xiaoer{\ustc@entitle}\\
+  \song\xiaoer\textbf{\ustc@entitle}\\
   \vspace{1em}
   \begin{tabular}{l}
   \song\xiaosi{Master Candidate:}~\song\xiaosi{\ustc@enauthor} \\ 

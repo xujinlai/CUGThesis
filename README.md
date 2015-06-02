@@ -22,7 +22,7 @@ I recommend **Sublime Text 3** + **LatexTool** + **TexLive** + **SumatraPDF** to
 Because after the configuration, you can compile the whole files with only needing to click **"Ctrl+B"**.
  
 # Update Log
-[20150523] v0.1.2.2
+[20150531] v0.1.2.2
 修改章节标题的空行大小
 现在章节和二级标题的行间距已经调整到和学校模版相同
 但是三级标题的行间距还是过大,再想办法调整
