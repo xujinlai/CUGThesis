@@ -1105,7 +1105,7 @@
 \renewcommand\frontmatter{%
     \cleardoublepage
   \@mainmatterfalse
-  \pagenumbering{Roman}
+  %\pagenumbering{Roman}
   \thispagestyle{empty}
   \pagestyle{empty}
   %\pagestyle{empty} 
@@ -1190,7 +1190,9 @@
   \song\xiaosi{Supervisor:}~\song\xiaosi{\ustc@enadvisor}
   \end{tabular}\\
   \vspace{1em}
+  \vspace{5pt}
   \song\sihao{\ustc@enabstractname}
+  \vspace{5pt}
   \vspace{1em}
   \end{center}
   \end{spacing}
