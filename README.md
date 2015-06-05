@@ -22,6 +22,14 @@ I recommend **Sublime Text 3** + **LatexTool** + **TexLive** + **SumatraPDF** to
 Because after the configuration, you can compile the whole files with only needing to click **"Ctrl+B"**.
  
 # Update Log
+更新日志[20150605] v0.1.3
+修复一些bug:
+1.个人简介的行距修正,字体修正
+2.目录前双面打印正常空页
+3.修复gpt7714中使用google导出bib会导致会议论文标题后多出"\\"的问题,将其中的\\改为了"."
+4.其他的一些根据要求做的修改
+到此版本位置,大多数bug都已经修复,还有一些零散的bug请在github上提交,我会及时修复
+
 [20150531] v0.1.2.2
 修改章节标题的空行大小
 现在章节和二级标题的行间距已经调整到和学校模版相同
