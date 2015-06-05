@@ -1211,7 +1211,7 @@
 	\renewcommand{\contentsname}{\texorpdfstring{目\hspace{\ccwd}录}{目录}}
 \fi
 \renewcommand\tableofcontents{%
-
+    \cleardoublepage
     \begin{spacing}{1.0}
     \if@twocolumn
       \@restonecoltrue\onecolumn
